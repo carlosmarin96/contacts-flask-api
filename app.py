@@ -53,20 +53,7 @@ def create_contact():
     db.session.add(new_contact)
     db.session.commit()
 
-     response = make_response(jsonify({
-                'data': {
-                    'email' : email,
-                    'name': name,
-                    'lastname': lastname,
-                    'company': company,
-                    'phone': phone,
-                },
-                'msg': 'Created'
-                }),201)
-            
-            response.headers['Content-Type'] = "application/json"
-
-    return response
+    return contact_schema.jsonify(new_contact)
 
 @app.route('/contacts', methods=['GET'])
 def get_contacts():
