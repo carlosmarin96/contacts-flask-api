@@ -53,7 +53,7 @@ def create_contact():
     db.session.add(new_contact)
     db.session.commit()
 
-    return contact_schema.jsonify(new_contact)
+    return jsonify{"message":"Contacted created"}
 
 @app.route('/contacts', methods=['GET'])
 def get_contacts():
