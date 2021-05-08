@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 entorno = os.getenv('DATABASE_URL')
 ent = entorno[:8] + 'ql' + entorno[8:] 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:DBCarlos96@localhost/contactsdatabase'
+app.config['SQLALCHEMY_DATABASE_URI'] = ent
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db = SQLAlchemy(app)
